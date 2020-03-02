@@ -83,7 +83,15 @@ object Principal {
     for (posicion <- temperaturasHora){
       if(temperaturasHora(posicion) == 25){
         print("Hora: "+temperaturasHora(posicion-1)+". Temperatura: "+temperaturasHora(posicion))
+        mach += temperaturasHora(posicion-1)
+        mach += temperaturasHora(posicion)
       }
+    }
+
+    //Mostrar registro de mach's
+    print("\nHoras mach")
+    for (p <- mach){
+      print(p+" | ")
     }
 
 
