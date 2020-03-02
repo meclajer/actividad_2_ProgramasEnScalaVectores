@@ -1,6 +1,11 @@
+import scala.util.Random
+import scala.collection.mutable.ArrayBuffer
+
 object Principal {
   def main(args: Array[String]): Unit = {
 
+    // ============================================== PAGINA 17 ==============================================
+    print("\n\n\t ====== PAGINA 17 ====== \n\n")
     print("\n\tSERVICIOS ESCOLARES\n\tPromedio de alumno\n")
 
     var servicioEscolares = Array(
@@ -49,6 +54,38 @@ object Principal {
 
     //Promedio genelar
     print("\n\nPromedio general: \n"+sumatoriaGeneral+"\n\n")
+
+    // ============================================== PAGINA 18 ==============================================
+    print("\n\n\t ====== PAGINA 18 ====== \n\n")
+
+    var temperaturasHora = new Array[Int](48)
+    var hora:Int = 0
+
+    for (posicion <- 0 to 47){
+      if( posicion%2 == 0 ){
+        temperaturasHora(posicion) = hora
+        hora = hora + 1
+      } else {
+        temperaturasHora(posicion) = Random.nextInt(50)
+      }
+    }
+
+    //Mostrar registro
+    for (p <- temperaturasHora){
+      print(p+" | ")
+    }
+
+    //vector dinamico para almacenar horas coincidentes
+    var mach = new ArrayBuffer[Int]()
+
+    //Mostrar temperaturas y horas en que coincidan
+    print("\n\nHoras que coinciden con 25°: \n")
+    for (posicion <- temperaturasHora){
+      if(temperaturasHora(posicion) == 25){
+        print("Hora: "+temperaturasHora(posicion-1)+". Temperatura: "+temperaturasHora(posicion))
+      }
+    }
+
 
   }
 }
