@@ -77,23 +77,37 @@ object Principal {
 
     //vector dinamico para almacenar horas coincidentes
     var mach = new ArrayBuffer[Int]()
+    var apuntador:Int = 0
 
     //Mostrar temperaturas y horas en que coincidan
     print("\n\nHoras que coinciden con 25°: \n")
-    for (posicion <- temperaturasHora){
-      if(temperaturasHora(posicion) == 25){
-        print("Hora: "+temperaturasHora(posicion-1)+". Temperatura: "+temperaturasHora(posicion))
-        mach += temperaturasHora(posicion-1)
-        mach += temperaturasHora(posicion)
+    for (posicion:Int <- temperaturasHora){
+      if(posicion == 25){
+        println("Hora: "+temperaturasHora(apuntador-1)+". Temperatura: "+temperaturasHora(apuntador))
+        mach += temperaturasHora(apuntador-1)
+        mach += temperaturasHora(apuntador)
       }
+      apuntador = apuntador + 1
     }
 
     //Mostrar registro de mach's
-    print("\nHoras mach")
-    for (p <- mach){
-      print(p+" | ")
-    }
+    var suma:Int = 0
+    var canti:Int = 0
+    var contador:Int = 0
 
+    print("\nHoras mach\n")
+    for (p <- mach){
+      if( contador%2 == 0 ){
+        suma = suma + p
+        canti = canti + 1
+      }
+      contador = contador + 1
+    }
+    if (canti != 0)
+      print(suma/canti)
+    else
+      print("Sin mach")
+    print("\n")
 
   }
 }
